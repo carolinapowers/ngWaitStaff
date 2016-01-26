@@ -65,12 +65,12 @@
                 <div class="panel-body">
                     <p>Tip Total:<span> {{totalTip | number}}</span></p>
                     <p>Meal Count:<span> {{totalMeal}}</span></p>
-                    <p>Avarage Tip Per Meal: <span>{{averageTip | number}}</span></p>
+                    <p>Average Tip Per Meal: <span>{{averageTip | number}}</span></p>
                 </div>
             </div>
         </div>
         <div class="col-md-9" id="reset-button">
-            <button class="btn btn-default pull-right" ng-click="reset(undefined)">Reset</button>
+            <button class="btn btn-default pull-right" type="button" ng-click="reset()">Reset</button>
         </div>
     </div>
     </div>

@@ -46,14 +46,14 @@ angular.module('WaitApp', ['ngMessages'])
             $scope.mealPrice = "";
             $scope.taxRate = "";
             $scope.tipPercentage = "";
-            $scope.subTotal = "";
-            $scope.tip = "";
-            $scope.total = "";
+            $scope.subTotal = undefined;
+            $scope.tip = undefined;
+            $scope.total = undefined;
             $scope.tipTotal = [];
             $scope.mealCount = [];
-            $scope.totalTip = "";
+            $scope.totalTip = undefined;
             $scope.totalMeal = "";
-            $scope.averageTip = "";
+            $scope.averageTip = undefined;
         }
 
         $scope.cancel = function () {
