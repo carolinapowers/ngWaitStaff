@@ -5,10 +5,16 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--bower:css-->
+    <!--endbower-->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+   <a href="#/">Home</a>
+   <a href="#/meals">Meals</a>
+   <a href="#/earnings">Earnings</a>
+   <ng-view></ng-view>
     <div ng-controller="CalculatorCtrl">
         <h1>Waitstaff Calculator</h1>
         <div class="col-md-4 col-md-offset-2">
@@ -76,8 +82,12 @@
     </div>
 
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-messages.js"></script>
+   
+    <!--bower:js-->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/ng-messages/angular-messages.js"></script>
+    <!--endbower-->
     <script src="main.js"></script>
 </body>
 

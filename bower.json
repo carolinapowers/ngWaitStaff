@@ -1,0 +1,22 @@
+{
+  "name": "y",
+  "version": "y",
+  "homepage": "https://github.com/carolinapowers/ngWaitStaff",
+  "authors": [
+    "Carolina Powers <carolinapoloni@gmail.com>"
+  ],
+  "description": "y",
+  "main": "y",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.4.9",
+    "ng-messages": "*"
+  }
+}

@@ -1,4 +1,16 @@
-angular.module('WaitApp', ['ngMessages'])
+angular.module('WaitApp', ['ngMessages', 'ngRoute'])
+    .config(['$routeProvider', function($routeProvider){
+        $routeProvider.when('/', {
+            templateUrl:'./home.html'
+        })
+        .when('/meals', {
+            templateUrl:'./meal/new-meal.html'
+        })
+        .when('/earnings', {
+            templateUrl:'./earnings/my-earnings.html'
+        })
+        .otherwise('/');
+    }])
     .controller('CalculatorCtrl', function ($scope) {
         $scope.subTotal = undefined;
         $scope.tip = undefined;
