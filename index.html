@@ -14,70 +14,11 @@
    <a href="#/">Home</a>
    <a href="#/meals">Meals</a>
    <a href="#/earnings">Earnings</a>
+   
+    <h1>Waitstaff Calculator</h1>
    <ng-view></ng-view>
-    <div ng-controller="CalculatorCtrl">
-        <h1>Waitstaff Calculator</h1>
-        <div class="col-md-4 col-md-offset-2">
-            <div class="panel panel-default" id="panel-left">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Enter Meal Details</h3>
-                </div>
-                <div class="panel-body">
-                    <form name="mealDetailsForm" ng-submit="submit()">
-                        <div class="form-group">
-                            <label for="meal-price">Base Meal Price: $</label>
-                            <input type="number" id="meal-price" class="calc-input" name="mealPrice" ng-model="mealPrice" />
-                            <div class="help-block">
-                                <p class="error"></p>
-                            </div>
-                        </div>
-                        <div class="form-group tax-rate">
-                            <label for="tax-rate">Tax Rate: %</label>
-                            <input type="number" id="tax-rate" class="calc-input" name="taxRate" ng-model="taxRate">
-                            <div class="help-block">
-                                <p class="error"></p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="tip-percentage">Tip Percentage: %</label>
-                            <input type="number" id="tip-percentage" class="calc-input" name="tipPercentage" ng-model="tipPercentage">
-                            <div class="help-block">
-                                <p class="error"></p>
-                            </div>
-                        </div>
-                        <div>
-                            <button class="btn btn-default left-panel-buttons" type="submit" value="Submit">Submit</button>
-                            <button class="btn btn-default left-panel-buttons" type="button" ng-click="cancel()">Cancel</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3" id="panel-right">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Customer Charges</h3>
-                </div>
-                <div class="panel-body">
-                    <p>Subtotal<span> {{subTotal | number}}</span></p>
-                    <p id="tip-p">Tip<span> {{tip | number}}</span></p>
-                    <p>Total <span> {{total | number}}</span></p>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">My Earnings Info</h3>
-                </div>
-                <div class="panel-body">
-                    <p>Tip Total:<span> {{totalTip | number}}</span></p>
-                    <p>Meal Count:<span> {{totalMeal}}</span></p>
-                    <p>Average Tip Per Meal: <span>{{averageTip | number}}</span></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9" id="reset-button">
-            <button class="btn btn-default pull-right" type="button" ng-click="reset()">Reset</button>
-        </div>
+    
+        
     </div>
     </div>
 
@@ -89,6 +30,7 @@
     <script src="bower_components/ng-messages/angular-messages.js"></script>
     <!--endbower-->
     <script src="main.js"></script>
+    <script src="./earnings/my-earnings-ctrl.js"></script>
 </body>
 
 </html>
