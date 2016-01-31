@@ -12,15 +12,14 @@ angular.module('WaitApp', ['ngMessages', 'ngRoute'])
         .otherwise('/');
     }])
     .controller('CalculatorCtrl', function ($scope) {
-        $scope.subTotal = undefined;
-        $scope.tip = undefined;
-        $scope.tipTotal = [];
-        $scope.mealCount = [];
+       
+        var tipTotal = [];
+        var mealCount = [];
 
         $scope.mealDetails = {
-            mealPrice: undefined,
-            taxRate: undefined,
-            tipPercentage: undefined
+            mealPrice: 0,
+            taxRate: 0,
+            tipPercentage: 0
         }
 
         $scope.submit = function () {
@@ -31,55 +30,63 @@ angular.module('WaitApp', ['ngMessages', 'ngRoute'])
                 tipPercentage: $scope.tipPercentage
             }
 
-            //calculate Costumer Charges
-            $scope.subTotal = $scope.mealDetails.mealPrice + ($scope.mealDetails.mealPrice * ($scope.mealDetails.taxRate * .01));
-            $scope.tip = $scope.subTotal * ($scope.mealDetails.tipPercentage * 0.01);
-            $scope.total = $scope.subTotal + $scope.tip;
-
-            //add tips to an array
-            $scope.tipTotal.push($scope.tip);
-            // sum the tips in the array
-            var total = 0;
-            for (var i in $scope.tipTotal) {
-                total += $scope.tipTotal[i]
-            }
-            //display sum of tips in the array
-            $scope.totalTip = total;
-
-            //add meals to an array, then find the number of meals by finding array.length
-            $scope.mealCount.push($scope.mealDetails.mealPrice);
-            $scope.totalMeal = $scope.mealCount.length;
-
-            //avarage tip per meal is equal total tip divided by number of meals
-            $scope.averageTip = $scope.totalTip / $scope.totalMeal;
+            angular.extend($scope, calcCustomerCharges($scope.mealPrice, $scope.tipPercentage,  $scope.taxRate));
+            
+            angular.extend($scope, calcMyEarnings());
+            
+            $scope.cancel();
         }
+          
+    function calcCustomerCharges(mealPrice, tipPercentage, taxRate){
+        var subTotal =  $scope.mealPrice + ($scope.mealPrice * ($scope.taxRate * .01));
+        var tip = subTotal * ($scope.tipPercentage * 0.01);
+        var total = subTotal + tip;
+
+        return {
+            subTotal: subTotal,
+            tip: tip,
+            total: total
+        }
+   };
+       
+    function calcMyEarnings () {       
+            tipTotal.push($scope.tip); 
+            var total = 0;
+            for (var i in tipTotal) {
+                total += tipTotal[i]
+            } 
+            mealCount.push($scope.mealDetails.mealPrice);
+           
+           $scope.totalTip = total;  
+           $scope.totalMeal = mealCount.length;
+           $scope.averageTip = $scope.totalTip / $scope.totalMeal;
+           
+           return {
+               totalTip: $scope.totalTip,
+               totalMeal: $scope.totalMeal,
+               averageTip: $scope.averageTip       
+           }
+       }   
 
         $scope.reset = function () {
-            $scope.mealPrice = "";
-            $scope.taxRate = "";
-            $scope.tipPercentage = "";
-            $scope.subTotal = undefined;
-            $scope.tip = undefined;
-            $scope.total = undefined;
+            $scope.mealPrice = 0;
+            $scope.taxRate = 0;
+            $scope.tipPercentage = 0;
+            $scope.subTotal = 0;
+            $scope.tip = 0;
+            $scope.total = 0;
             $scope.tipTotal = [];
             $scope.mealCount = [];
-            $scope.totalTip = undefined;
-            $scope.totalMeal = "";
-            $scope.averageTip = undefined;
+            $scope.totalTip = 0;
+            $scope.totalMeal = 0;
+            $scope.averageTip = 0;
         }
 
         $scope.cancel = function () {
-            $scope.mealPrice = "";
-            $scope.taxRate = "";
-            $scope.tipPercentage = "";
+            $scope.mealPrice = 0;
+            $scope.taxRate = 0;
+            $scope.tipPercentage = 0;
         }
-
-        //        $scope.cancel = function () {
-        //            $scope.copia = angular.copy($scope.mealDetails);
-        //            $scope.reset = function () {
-        //                $scope.copia = angular.copy($scope.mealDetails);
-        //                // or
-        //                // angular.copy($scope.initial, $scope.datas);
-        //            }
-        //        };
+       
+        
     });
