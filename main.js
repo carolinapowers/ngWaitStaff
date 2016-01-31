@@ -49,7 +49,6 @@ angular.module('WaitApp', ['ngMessages', 'ngRoute'])
                     } 
                 mealCount.push($scope.mealDetails.mealPrice);
                 $rootScope.totalTip = total;
-//                $scope.totalTip = total;  
                 $rootScope.totalMeal = mealCount.length;
                 $rootScope.averageTip = $scope.totalTip / $scope.totalMeal;
             } else{

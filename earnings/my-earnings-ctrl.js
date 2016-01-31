@@ -7,4 +7,6 @@ angular.module('WaitApp')
            $scope.totalTip = $rootScope.totalTip; 
            $scope.totalMeal = $rootScope.totalMeal;
            $scope.averageTip = $rootScope.averageTip;    
+    
+           $scope.reset = $rootScope.reset;
 });
