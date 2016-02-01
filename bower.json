@@ -17,6 +17,10 @@
   ],
   "dependencies": {
     "angular-route": "~1.4.9",
-    "ng-messages": "*"
+    "ng-messages": "*",
+    "angular-animate": "^1.4.9"
+  },
+  "resolutions": {
+    "angular": "1.4.9"
   }
 }

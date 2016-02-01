@@ -18,12 +18,13 @@
         <a href="#/earnings">Earnings</a>
     </div>
 
-    <ng-view></ng-view>
+    <ng-view ng-animate-children class="animate-view"></ng-view>
 
     <!--bower:js-->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/ng-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <!--endbower-->
     <script src="main.js"></script>
     <script src="./earnings/my-earnings-ctrl.js"></script>
