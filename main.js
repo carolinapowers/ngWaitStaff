@@ -1,4 +1,4 @@
-angular.module('WaitApp', ['ngMessages', 'ngRoute'])
+angular.module('WaitApp', ['ngMessages', 'ngRoute', 'ngAnimate'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/', {
                 templateUrl: './home.html'
