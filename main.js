@@ -13,6 +13,13 @@ angular.module('WaitApp', ['ngMessages', 'ngRoute', 'ngAnimate'])
             })
             .otherwise('/');
     }])
+    .run(function ($rootScope, $location, $timeout) {
+        $rootScope.$on('$routeChangeSuccess', function () {
+            $timeout(function () {
+                $rootScope.isLoading = false;
+            }, 1000);
+        });
+    })
     .controller('CalculatorCtrl', function ($scope, $rootScope) {
 
         var tipTotal = [];
