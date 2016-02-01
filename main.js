@@ -5,7 +5,7 @@ angular.module('WaitApp', ['ngMessages', 'ngRoute'])
             })
             .when('/meals', {
                 templateUrl: './meal/new-meal.html',
-                controller: 'CalculatorCtrl
+                controller: 'CalculatorCtrl'
             })
             .when('/earnings', {
                 templateUrl: './earnings/my-earnings.html',
