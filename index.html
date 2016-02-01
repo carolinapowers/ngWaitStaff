@@ -11,19 +11,15 @@
 </head>
 
 <body>
-   <a href="#/">Home</a>
-   <a href="#/meals">Meals</a>
-   <a href="#/earnings">Earnings</a>
-   
     <h1>Waitstaff Calculator</h1>
-   <ng-view></ng-view>
-    
-        
-    </div>
+    <div class="col-md-4 col-md-offset-4" id="navigation">
+        <a href="#/">Home |</a>
+        <a href="#/meals">Meals |</a>
+        <a href="#/earnings">Earnings</a>
     </div>
 
-    </div>
-   
+    <ng-view></ng-view>
+
     <!--bower:js-->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>

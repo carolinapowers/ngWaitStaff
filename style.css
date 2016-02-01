@@ -43,3 +43,7 @@ h1 {
     width: 50%;
     padding-left: 2.3em;
 }
+
+#navigation {
+    text-align: center;
+}
