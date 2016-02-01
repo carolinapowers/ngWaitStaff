@@ -59,7 +59,7 @@ h1 {
 
 .animate-view.ng-enter {
     opacity: 0;
-    -webkit-transition: 2s all linear;
+    -webkit-transition: 1s all linear;
 }
 
 .animate-view.ng-enter-active {
