@@ -47,3 +47,12 @@ h1 {
 #navigation {
     text-align: center;
 }
+
+.home-paragraph {
+    margin-top: 2em;
+    text-align: justify;
+}
+
+.home-paragraph p {
+    margin-left: -6em;
+}
