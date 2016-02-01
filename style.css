@@ -56,3 +56,20 @@ h1 {
 .home-paragraph p {
     margin-left: -6em;
 }
+
+.animate-view.ng-enter {
+    opacity: 0;
+    -webkit-transition: 1s all linear;
+}
+
+.animate-view.ng-enter-active {
+    opacity: 1
+}
+
+.animate-view.ng-leave {
+    opacity: 1
+}
+
+.animate-view.ng-leave-active {
+    opacity: 0
+}

@@ -1,22 +1,23 @@
 angular.module('WaitApp', ['ngMessages', 'ngRoute'])
-    .config(['$routeProvider', function($routeProvider){
+    .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/', {
-            templateUrl:'./home.html'
-        })
-        .when('/meals', {
-            templateUrl:'./meal/new-meal.html'
-        })
-        .when('/earnings', {
-            templateUrl:'./earnings/my-earnings.html',
-            controller: 'MyEarningsCtrl'
-        })
-        .otherwise('/');
+                templateUrl: './home.html'
+            })
+            .when('/meals', {
+                templateUrl: './meal/new-meal.html',
+                controller: 'CalculatorCtrl
+            })
+            .when('/earnings', {
+                templateUrl: './earnings/my-earnings.html',
+                controller: 'MyEarningsCtrl'
+            })
+            .otherwise('/');
     }])
     .controller('CalculatorCtrl', function ($scope, $rootScope) {
-       
+
         var tipTotal = [];
         var mealCount = [];
-    
+
         $scope.mealDetails = {
             mealPrice: 0,
             taxRate: 0,
@@ -24,12 +25,12 @@ angular.module('WaitApp', ['ngMessages', 'ngRoute'])
         }
 
         $scope.submit = function () {
-            angular.extend($scope, calcCustomerCharges($scope.mealPrice, $scope.tipPercentage,  $scope.taxRate));  
+            angular.extend($scope, calcCustomerCharges($scope.mealPrice, $scope.tipPercentage, $scope.taxRate));
             calcMyEarnings();
         }
-          
-        function calcCustomerCharges(mealPrice, tipPercentage, taxRate){
-            var subTotal =  $scope.mealPrice + ($scope.mealPrice * ($scope.taxRate * .01));
+
+        function calcCustomerCharges(mealPrice, tipPercentage, taxRate) {
+            var subTotal = $scope.mealPrice + ($scope.mealPrice * ($scope.taxRate * .01));
             var tip = subTotal * ($scope.tipPercentage * 0.01);
             var total = subTotal + tip;
 
@@ -38,23 +39,23 @@ angular.module('WaitApp', ['ngMessages', 'ngRoute'])
                 tip: tip,
                 total: total
             }
-       };
-       
-        function calcMyEarnings () {       
-            if ($scope.mealPrice !== 0 && $scope.tip !== 0){  
-                tipTotal.push($scope.tip); 
-                    var total = 0;
-                    for (var i in tipTotal) {
-                        total += tipTotal[i]
-                    } 
+        };
+
+        function calcMyEarnings() {
+            if ($scope.mealPrice !== 0 && $scope.tip !== 0) {
+                tipTotal.push($scope.tip);
+                var total = 0;
+                for (var i in tipTotal) {
+                    total += tipTotal[i]
+                }
                 mealCount.push($scope.mealDetails.mealPrice);
                 $rootScope.totalTip = total;
                 $rootScope.totalMeal = mealCount.length;
                 $rootScope.averageTip = $scope.totalTip / $scope.totalMeal;
-            } else{
+            } else {
                 alert('We do not take 0s');
-            }         
-        }   
+            }
+        }
 
         $rootScope.reset = function () {
             $rootScope.mealPrice = 0;
@@ -75,6 +76,6 @@ angular.module('WaitApp', ['ngMessages', 'ngRoute'])
             $scope.taxRate = 0;
             $scope.tipPercentage = 0;
         }
-       
-        
+
+
     });
